@@ -2432,9 +2432,6 @@ app.get("/users", (req, res) => {
   res.json(users);
 });
 
-//cors 
-app.use(cors()) // frontend - http://localhost:3000/
-
 // POST API (create user)
 app.post("/users", (req, res) => {
   const newUser = req.body;
@@ -2446,5 +2443,5 @@ app.post("/users", (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://127.0.0.1:3000/`);
+  console.log(`Server running on http://127.0.0.1:3000/*`);
 });
