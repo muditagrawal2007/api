@@ -1,7 +1,19 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
+
+// CORS configuration
+const corsOptions = {
+  origin: "http://localhost:3000", // frontend site URL
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -2420,12 +2432,15 @@ app.get("/users", (req, res) => {
   res.json(users);
 });
 
+//cors 
+app.use(cors()) // frontend - http://localhost:3000/
+
 // POST API (create user)
 app.post("/users", (req, res) => {
   const newUser = req.body;
   res.json({
     message: "User created successfully",
-    user: newUser
+     user: newUser
   });
 });
 
