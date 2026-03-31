@@ -4,12 +4,13 @@ const cors = require("cors");
 const app = express();
 const PORT = 3000;
 
-// CORS configuration
+// CORS configuration - Allow all origins for frontend compatibility
 const corsOptions = {
-  origin: "http://localhost:3000", // frontend site URL
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: "*", // Allow requests from any origin
+  credentials: false, // Set to false when using "*" origin
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 200
 };
 
 // Apply CORS middleware
